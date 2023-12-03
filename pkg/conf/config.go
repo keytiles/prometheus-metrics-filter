@@ -33,9 +33,10 @@ type AllConfig struct {
 
 // HttpServiceConfig influxdb config struct
 type HttpServiceConfig struct {
-	Address          string `yaml:"address"`
-	Port             string `yaml:"port"`
-	DefaultProxyRule string `yaml:"defaultProxyRule"`
+	Address                string `yaml:"address"`
+	Port                   string `yaml:"port"`
+	DefaultProxyRule       string `yaml:"defaultProxyRule"`
+	DefaultMetricsFetchUrl string `yaml:"defaultMetricsFetchUrl"`
 }
 
 type ProxyRule struct {

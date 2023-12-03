@@ -54,11 +54,12 @@ func Api_ExecuteMetricsRequest(respw http.ResponseWriter, req *http.Request) {
 
 	fetchUrl := req.URL.Query().Get(QUERYPARAM_METRICS_FETCH_URL)
 	if fetchUrl == "" {
-		err := fmt.Errorf("mandatory request param '%v' is missing", QUERYPARAM_METRICS_FETCH_URL)
-		LOG.Error("bad request: %v", err)
-		http.Error(respw, fmt.Sprintf("bad request: %v", err), 400)
-		return
+		fetchUrl = conf.All.HttpService.DefaultMetricsFetchUrl
 	}
+	if !strings.HasPrefix(fetchUrl, "http://") {
+		fetchUrl = "http://" + fetchUrl
+	}
+	LOG.Debug("using fetchUrl: %v", fetchUrl)
 
 	// time to do the query!
 

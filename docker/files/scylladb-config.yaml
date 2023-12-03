@@ -5,6 +5,7 @@ httpService:
   address: 0.0.0.0
   port: 9181
   defaultProxyRule: scyllaDB
+  defaultMetricsFetchUrl: http://localhost:9180
 
 
 # A map of configured proxy rules
