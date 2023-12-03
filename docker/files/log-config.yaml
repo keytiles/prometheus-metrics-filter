@@ -1,0 +1,28 @@
+loggers:
+  root:
+    level: info
+    handlers:
+      - stdout
+
+  # === main package
+
+  # main:
+  #   level: info
+  #   handlers:
+  #     - stdout
+
+  # === http package
+
+  http.handler.Api_ExecuteMetricsRequest:
+    level: debug
+    handlers:
+      - stdout
+
+
+# according to our logging standards we now log to console (STDOUT) in json format
+handlers:
+  stdout:
+    level: debug
+    encoding: json
+    outputPaths:
+      - stdout
